@@ -3,12 +3,7 @@
 @time  : 2017.05.21 18:28
 """
 from . import qq, _163
-try:
-    # Python 2.6-2.7
-    from HTMLParser import HTMLParser
-except ImportError:
-    # Python 3
-    from html.parser import HTMLParser
+import html
 
 def getKwl(url):
     '''
@@ -26,7 +21,7 @@ def getKwl(url):
         kwl += '    <so name="%s." artist="%s" album=""></so>\r\n' % (item[0].replace('"', ''), item[1])
     kwl = '<so>\r\n%s</so>' % kwl
 
-    kwl = HTMLParser().unescape(kwl)
+    kwl = html.unescape(kwl)
     kwl = kwl.encode('gb2312', errors='ignore')
     return kwl
 

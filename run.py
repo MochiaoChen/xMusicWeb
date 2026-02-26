@@ -7,7 +7,7 @@
 '''
 import os, json
 from flask import Flask, render_template, request, make_response, flash, redirect, url_for, send_from_directory
-from werkzeug.contrib.fixers import LighttpdCGIRootFix
+# from werkzeug.contrib.fixers import LighttpdCGIRootFix
 
 import NetEaseMusic
 
@@ -21,7 +21,7 @@ def favicon():
                                'favicon.ico', mimetype='image/vnd.microsoft.icon')
 
 
-app.wsgi_app = LighttpdCGIRootFix(app.wsgi_app)
+# app.wsgi_app = LighttpdCGIRootFix(app.wsgi_app)
 
 
 @app.route('/')
